@@ -1,0 +1,25 @@
+{
+  "lmsApp": {
+    "ressource": {
+      "home": {
+        "title": "Ressources",
+        "createLabel": "Créer un nouveau Ressource",
+        "createOrEditLabel": "Créer ou éditer un Ressource"
+      },
+      "created": "Un nouveau Ressource a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ressource avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ressource avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ressource {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ressource"
+      },
+      "titreRessource": "Titre Ressource",
+      "cheminRessource": "Chemin Ressource",
+      "typeRessource": "Type Ressource",
+      "exercice": "Exercice",
+      "cours": "Cours"
+    }
+  }
+}

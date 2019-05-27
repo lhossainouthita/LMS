@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="competence">
+            <h2><span jhiTranslate="lmsApp.competence.detail.title">Competence</span> {{competence.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lmsApp.competence.codeCompetence">Code Competence</span></dt>
+                <dd>
+                    <span>{{competence.codeCompetence}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.competence.intituleCompetence">Intitule Competence</span></dt>
+                <dd>
+                    <span>{{competence.intituleCompetence}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.competence.descriptionCompetence">Description Competence</span></dt>
+                <dd>
+                    <span>{{competence.descriptionCompetence}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.competence.modulePedagogique">Module Pedagogique</span></dt>
+                <dd>
+                    <div *ngIf="competence.modulePedagogiqueId">
+                        <a [routerLink]="['/module-pedagogique', competence.modulePedagogiqueId, 'view']">{{competence.modulePedagogiqueId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/competence', competence.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

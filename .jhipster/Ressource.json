@@ -1,0 +1,47 @@
+{
+    "name": "Ressource",
+    "fields": [
+        {
+            "fieldName": "titreRessource",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cheminRessource",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "typeRessource",
+            "fieldType": "TypeRessource",
+            "fieldValues": "VEDIO,IMAGE,ANIMATION,PDF,PPT,LIEN"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "exercice",
+            "otherEntityName": "exercice",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "cours",
+            "otherEntityName": "cours",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190523224816",
+    "entityTableName": "ressource",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

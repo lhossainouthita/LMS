@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-situation-heading" jhiTranslate="lmsApp.situation.home.createOrEditLabel">Create or edit a Situation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!situation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.situation.titreSituation" for="field_titreSituation">Titre Situation</label>
+                    <input type="text" class="form-control" name="titreSituation" id="field_titreSituation"
+                           formControlName="titreSituation"/>
+                    <div *ngIf="editForm.get('titreSituation').invalid && (editForm.get('titreSituation').dirty || editForm.get('titreSituation').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('titreSituation').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.situation.contenuSituation" for="field_contenuSituation">Contenu Situation</label>
+                    <input type="text" class="form-control" name="contenuSituation" id="field_contenuSituation"
+                           formControlName="contenuSituation"/>
+                    <div *ngIf="editForm.get('contenuSituation').invalid && (editForm.get('contenuSituation').dirty || editForm.get('contenuSituation').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contenuSituation').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.situation.exercice" for="field_exercice">Exercice</label>
+                    <select class="form-control" id="field_exercice" name="exercice" formControlName="exerciceId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="exerciceOption.id" *ngFor="let exerciceOption of exercices; trackBy: trackExerciceById">{{exerciceOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.situation.cours" for="field_cours">Cours</label>
+                    <select class="form-control" id="field_cours" name="cours" formControlName="coursId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="coursOption.id" *ngFor="let coursOption of cours; trackBy: trackCoursById">{{coursOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

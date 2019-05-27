@@ -1,0 +1,56 @@
+{
+    "name": "Parcour",
+    "fields": [
+        {
+            "fieldName": "titreParcour",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "niveauParcour",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "exercice",
+            "otherEntityRelationshipName": "parcour",
+            "relationshipName": "exercice"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cours",
+            "otherEntityRelationshipName": "parcour",
+            "relationshipName": "cours"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "parcour",
+            "relationshipName": "tuteur",
+            "otherEntityField": "firstName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "modulePedagogique",
+            "otherEntityRelationshipName": "parcour",
+            "relationshipName": "modulePedagogique",
+            "otherEntityField": "intituleModule"
+        }
+    ],
+    "changelogDate": "20190523013133",
+    "entityTableName": "parcour",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

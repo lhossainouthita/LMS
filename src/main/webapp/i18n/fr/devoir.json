@@ -1,0 +1,23 @@
+{
+  "lmsApp": {
+    "devoir": {
+      "home": {
+        "title": "Devoirs",
+        "createLabel": "Créer un nouveau Devoir",
+        "createOrEditLabel": "Créer ou éditer un Devoir"
+      },
+      "created": "Un nouveau Devoir a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Devoir avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Devoir avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Devoir {{ id }} ?"
+      },
+      "detail": {
+        "title": "Devoir"
+      },
+      "titreDevoir": "Titre Devoir",
+      "cheminDevoir": "Chemin Devoir",
+      "modulePedagogique": "Module Pedagogique"
+    }
+  }
+}

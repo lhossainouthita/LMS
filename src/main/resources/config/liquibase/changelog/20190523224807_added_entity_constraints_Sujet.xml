@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Sujet.
+    -->
+    <changeSet id="20190523224807-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="module_pedagogique_id"
+                                 baseTableName="sujet"
+                                 constraintName="fk_sujet_module_pedagogique_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="module_pedagogique"/>
+
+        <addForeignKeyConstraint baseColumnNames="competence_id"
+                                 baseTableName="sujet"
+                                 constraintName="fk_sujet_competence_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="competence"/>
+
+    </changeSet>
+</databaseChangeLog>

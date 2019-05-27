@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="now()" dbms="mysql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523013132_added_entity_ModulePedagogique.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523013133_added_entity_Parcour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523013134_added_entity_Exercice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523013135_added_entity_Cours.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224806_added_entity_Devoir.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224807_added_entity_Sujet.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224808_added_entity_Periode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224809_added_entity_Competence.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224813_added_entity_Situation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224814_added_entity_Question.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224815_added_entity_Reponse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224816_added_entity_Ressource.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190523013132_added_entity_constraints_ModulePedagogique.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523013133_added_entity_constraints_Parcour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523013134_added_entity_constraints_Exercice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523013135_added_entity_constraints_Cours.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224806_added_entity_constraints_Devoir.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224807_added_entity_constraints_Sujet.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224808_added_entity_constraints_Periode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224809_added_entity_constraints_Competence.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224813_added_entity_constraints_Situation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224814_added_entity_constraints_Question.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224815_added_entity_constraints_Reponse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523224816_added_entity_constraints_Ressource.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

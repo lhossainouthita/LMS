@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ressource">
+            <h2><span jhiTranslate="lmsApp.ressource.detail.title">Ressource</span> {{ressource.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lmsApp.ressource.titreRessource">Titre Ressource</span></dt>
+                <dd>
+                    <span>{{ressource.titreRessource}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.ressource.cheminRessource">Chemin Ressource</span></dt>
+                <dd>
+                    <span>{{ressource.cheminRessource}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.ressource.typeRessource">Type Ressource</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lmsApp.TypeRessource.' + ressource.typeRessource}}">{{ressource.typeRessource}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.ressource.exercice">Exercice</span></dt>
+                <dd>
+                    <div *ngIf="ressource.exerciceId">
+                        <a [routerLink]="['/exercice', ressource.exerciceId, 'view']">{{ressource.exerciceId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.ressource.cours">Cours</span></dt>
+                <dd>
+                    <div *ngIf="ressource.coursId">
+                        <a [routerLink]="['/cours', ressource.coursId, 'view']">{{ressource.coursId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ressource', ressource.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

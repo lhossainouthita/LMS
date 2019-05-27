@@ -1,0 +1,25 @@
+{
+  "lmsApp": {
+    "sujet": {
+      "home": {
+        "title": "Sujets",
+        "createLabel": "Créer un nouveau Sujet",
+        "createOrEditLabel": "Créer ou éditer un Sujet"
+      },
+      "created": "Un nouveau Sujet a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sujet avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sujet avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Sujet {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sujet"
+      },
+      "intituleSujet": "Intitule Sujet",
+      "descriptionSujet": "Description Sujet",
+      "modulePedagogique": "Module Pedagogique",
+      "competence": "Competence",
+      "periode": "Periode"
+    }
+  }
+}

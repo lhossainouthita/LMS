@@ -1,0 +1,25 @@
+{
+  "lmsApp": {
+    "situation": {
+      "home": {
+        "title": "Situations",
+        "createLabel": "Créer un nouveau Situation",
+        "createOrEditLabel": "Créer ou éditer un Situation"
+      },
+      "created": "Un nouveau Situation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Situation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Situation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Situation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Situation"
+      },
+      "titreSituation": "Titre Situation",
+      "contenuSituation": "Contenu Situation",
+      "exercice": "Exercice",
+      "cours": "Cours",
+      "question": "Question"
+    }
+  }
+}

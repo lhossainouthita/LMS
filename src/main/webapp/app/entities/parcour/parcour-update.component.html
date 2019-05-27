@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-parcour-heading" jhiTranslate="lmsApp.parcour.home.createOrEditLabel">Create or edit a Parcour</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!parcour.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.parcour.titreParcour" for="field_titreParcour">Titre Parcour</label>
+                    <input type="text" class="form-control" name="titreParcour" id="field_titreParcour"
+                           formControlName="titreParcour"/>
+                    <div *ngIf="editForm.get('titreParcour').invalid && (editForm.get('titreParcour').dirty || editForm.get('titreParcour').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('titreParcour').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.parcour.niveauParcour" for="field_niveauParcour">Niveau Parcour</label>
+                    <input type="number" class="form-control" name="niveauParcour" id="field_niveauParcour"
+                           formControlName="niveauParcour"/>
+                    <div *ngIf="editForm.get('niveauParcour').invalid && (editForm.get('niveauParcour').dirty || editForm.get('niveauParcour').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('niveauParcour').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('niveauParcour')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.parcour.tuteur" for="field_tuteur">Tuteur</label>
+                    <select class="form-control" id="field_tuteur" name="tuteur" formControlName="tuteurId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.firstName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.parcour.modulePedagogique" for="field_modulePedagogique">Module Pedagogique</label>
+                    <select class="form-control" id="field_modulePedagogique" name="modulePedagogique" formControlName="modulePedagogiqueId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="modulePedagogiqueOption.id" *ngFor="let modulePedagogiqueOption of modulepedagogiques; trackBy: trackModulePedagogiqueById">{{modulePedagogiqueOption.intituleModule}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "lmsApp": {
+    "modulePedagogique": {
+      "home": {
+        "title": "ModulePedagogiques",
+        "createLabel": "Créer un nouveau Module Pedagogique",
+        "createOrEditLabel": "Créer ou éditer un Module Pedagogique"
+      },
+      "created": "Un nouveau Module Pedagogique a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Module Pedagogique avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Module Pedagogique avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Module Pedagogique {{ id }} ?"
+      },
+      "detail": {
+        "title": "Module Pedagogique"
+      },
+      "codeModule": "Code Module",
+      "intituleModule": "Intitule Module",
+      "descriptionModule": "Description Module",
+      "parcour": "Parcour",
+      "sujet": "Sujet",
+      "competence": "Competence",
+      "devoir": "Devoir",
+      "admin": "Admin"
+    }
+  }
+}

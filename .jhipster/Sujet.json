@@ -1,0 +1,47 @@
+{
+    "name": "Sujet",
+    "fields": [
+        {
+            "fieldName": "intituleSujet",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descriptionSujet",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "modulePedagogique",
+            "otherEntityName": "modulePedagogique",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "competence",
+            "otherEntityRelationshipName": "sujet",
+            "relationshipName": "competence",
+            "otherEntityField": "intituleCompetence",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "periode",
+            "otherEntityRelationshipName": "sujet",
+            "relationshipName": "periode"
+        }
+    ],
+    "changelogDate": "20190523224807",
+    "entityTableName": "sujet",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

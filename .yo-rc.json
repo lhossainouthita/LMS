@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.lms",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.0.1",
+    "applicationType": "monolith",
+    "baseName": "LMS",
+    "packageName": "com.lms",
+    "packageFolder": "com/lms",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YmU5Y2NiNmRmMmU5MjQwMGYyNTFjN2U1OGM3Y2EzNWFiNTE1ZGY2NWE3YjUxNzIxMTdhMGEyMTBlYjM3OGNmZTVkMDYyOTc4ZmVhZmRjZGU2NGQ5ODA4MWM3M2ZmYzk0YzM3Zjg1ZmZmYjlmZTcxMjczNGZhN2QyMTk1ZjNiZTE=",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr",
+      "ar-ly"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+    "name": "ModulePedagogique",
+    "fields": [
+        {
+            "fieldName": "codeModule",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "intituleModule",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descriptionModule",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "parcour",
+            "otherEntityRelationshipName": "modulePedagogique",
+            "relationshipName": "parcour"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "sujet",
+            "otherEntityRelationshipName": "modulePedagogique",
+            "relationshipName": "sujet"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "competence",
+            "otherEntityRelationshipName": "modulePedagogique",
+            "relationshipName": "competence"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "devoir",
+            "otherEntityRelationshipName": "modulePedagogique",
+            "relationshipName": "devoir"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "modulePedagogique",
+            "relationshipName": "admin",
+            "otherEntityField": "firstName"
+        }
+    ],
+    "changelogDate": "20190523013132",
+    "entityTableName": "module_pedagogique",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

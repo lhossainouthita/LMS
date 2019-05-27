@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cours">
+            <h2><span jhiTranslate="lmsApp.cours.detail.title">Cours</span> {{cours.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lmsApp.cours.titreCours">Titre Cours</span></dt>
+                <dd>
+                    <span>{{cours.titreCours}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.cours.contenuCours">Contenu Cours</span></dt>
+                <dd>
+                    <span>{{cours.contenuCours}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.cours.parcour">Parcour</span></dt>
+                <dd>
+                    <div *ngIf="cours.parcourId">
+                        <a [routerLink]="['/parcour', cours.parcourId, 'view']">{{cours.parcourTitreParcour}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cours', cours.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

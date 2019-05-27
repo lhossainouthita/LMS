@@ -1,0 +1,49 @@
+{
+    "name": "Cours",
+    "fields": [
+        {
+            "fieldName": "titreCours",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contenuCours",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "situation",
+            "otherEntityRelationshipName": "cours",
+            "relationshipName": "question"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ressource",
+            "otherEntityRelationshipName": "cours",
+            "relationshipName": "ressource"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "parcour",
+            "otherEntityRelationshipName": "cours",
+            "relationshipName": "parcour",
+            "otherEntityField": "titreParcour"
+        }
+    ],
+    "changelogDate": "20190523013135",
+    "entityTableName": "cours",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

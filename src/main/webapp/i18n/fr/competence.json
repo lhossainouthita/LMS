@@ -1,0 +1,24 @@
+{
+  "lmsApp": {
+    "competence": {
+      "home": {
+        "title": "Competences",
+        "createLabel": "Créer un nouveau Competence",
+        "createOrEditLabel": "Créer ou éditer un Competence"
+      },
+      "created": "Une nouvelle Competence a été créée avec l'identifiant {{ param }}",
+      "updated": "La Competence avec l'identifiant {{ param }} a été mise à jour",
+      "deleted": "La Competence avec l'identifiant {{ param }} a été supprimée",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer la Competence {{ id }} ?"
+      },
+      "detail": {
+        "title": "Competence"
+      },
+      "codeCompetence": "Code Competence",
+      "intituleCompetence": "Intitule Competence",
+      "descriptionCompetence": "Description Competence",
+      "modulePedagogique": "Module Pedagogique"
+    }
+  }
+}

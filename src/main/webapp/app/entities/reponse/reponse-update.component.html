@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-reponse-heading" jhiTranslate="lmsApp.reponse.home.createOrEditLabel">Create or edit a Reponse</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reponse.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.reponse.contenuReponse" for="field_contenuReponse">Contenu Reponse</label>
+                    <input type="text" class="form-control" name="contenuReponse" id="field_contenuReponse"
+                           formControlName="contenuReponse"/>
+                    <div *ngIf="editForm.get('contenuReponse').invalid && (editForm.get('contenuReponse').dirty || editForm.get('contenuReponse').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contenuReponse').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.reponse.question" for="field_question">Question</label>
+                    <select class="form-control" id="field_question" name="question" formControlName="questionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="questionOption.id" *ngFor="let questionOption of questions; trackBy: trackQuestionById">{{questionOption.contenuQuestion}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

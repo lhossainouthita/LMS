@@ -1,0 +1,30 @@
+{
+    "name": "Reponse",
+    "fields": [
+        {
+            "fieldName": "contenuReponse",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "reponse",
+            "relationshipName": "question",
+            "otherEntityField": "contenuQuestion"
+        }
+    ],
+    "changelogDate": "20190523224815",
+    "entityTableName": "reponse",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lmsApp.competence.home.title">Competences</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-competence" [routerLink]="['/competence/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="lmsApp.competence.home.createLabel">
+            Create new Competence
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="competences">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="lmsApp.competence.codeCompetence">Code Competence</span></th>
+            <th><span jhiTranslate="lmsApp.competence.intituleCompetence">Intitule Competence</span></th>
+            <th><span jhiTranslate="lmsApp.competence.descriptionCompetence">Description Competence</span></th>
+            <th><span jhiTranslate="lmsApp.competence.modulePedagogique">Module Pedagogique</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let competence of competences ;trackBy: trackId">
+                <td><a [routerLink]="['/competence', competence.id, 'view' ]">{{competence.id}}</a></td>
+                <td>{{competence.codeCompetence}}</td>
+                <td>{{competence.intituleCompetence}}</td>
+                <td>{{competence.descriptionCompetence}}</td>
+                <td>
+                    <div *ngIf="competence.modulePedagogiqueId">
+                        <a [routerLink]="['../module-pedagogique', competence.modulePedagogiqueId , 'view' ]" >{{competence.modulePedagogiqueId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/competence', competence.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/competence', competence.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'competence', { outlets: { popup: competence.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

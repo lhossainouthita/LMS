@@ -1,0 +1,49 @@
+{
+    "name": "Exercice",
+    "fields": [
+        {
+            "fieldName": "titreExercice",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contenuExercice",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "situation",
+            "otherEntityRelationshipName": "exercice",
+            "relationshipName": "question"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ressource",
+            "otherEntityRelationshipName": "exercice",
+            "relationshipName": "ressource"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "parcour",
+            "otherEntityRelationshipName": "exercice",
+            "relationshipName": "parcour",
+            "otherEntityField": "titreParcour"
+        }
+    ],
+    "changelogDate": "20190523013134",
+    "entityTableName": "exercice",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

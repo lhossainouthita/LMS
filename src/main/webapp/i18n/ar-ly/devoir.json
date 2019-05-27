@@ -1,0 +1,23 @@
+{
+  "lmsApp": {
+    "devoir": {
+      "home": {
+        "title": "Devoirs",
+        "createLabel": "Create a new Devoir",
+        "createOrEditLabel": "Create or edit a Devoir"
+      },
+      "created": "A new Devoir is created with identifier {{ param }}",
+      "updated": "A Devoir is updated with identifier {{ param }}",
+      "deleted": "A Devoir is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Devoir {{ id }}?"
+      },
+      "detail": {
+        "title": "Devoir"
+      },
+      "titreDevoir": "Titre Devoir",
+      "cheminDevoir": "Chemin Devoir",
+      "modulePedagogique": "Module Pedagogique"
+    }
+  }
+}

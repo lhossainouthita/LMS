@@ -1,0 +1,43 @@
+
+
+
+entity ModulePedagogique {
+	
+	codeModule String required
+    intituleModule String
+    descriptionModule String
+}
+entity Parcour{
+	
+    titreParcour String required
+    niveauParcour Integer required
+}
+entity Exercice {
+	
+    titreExercice String required
+    contenuExercice String required
+}
+entity Cours{
+    titreCours String required
+    contenuCours String required
+}
+
+
+relationship OneToMany {
+	ModulePedagogique{parcour} to Parcour{ModulePedagogique(intituleModule)}
+}
+relationship OneToMany {
+	Parcour{exercice} to Exercice{parcour(titreParcour)}
+}
+relationship OneToMany {
+	Parcour{cours} to Cours{parcour(titreParcour)}
+}
+relationship ManyToOne {
+	ModulePedagogique{user(firstName)} to User
+}
+relationship ManyToOne {
+	Parcour{user(firstName)} to User
+}
+
+dto Cours, Exercice, ModulePedagogique, Parcour with mapstruct
+service Cours, Exercice, ModulePedagogique, Parcour with serviceClass

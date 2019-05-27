@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="situation">
+            <h2><span jhiTranslate="lmsApp.situation.detail.title">Situation</span> {{situation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lmsApp.situation.titreSituation">Titre Situation</span></dt>
+                <dd>
+                    <span>{{situation.titreSituation}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.situation.contenuSituation">Contenu Situation</span></dt>
+                <dd>
+                    <span>{{situation.contenuSituation}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.situation.exercice">Exercice</span></dt>
+                <dd>
+                    <div *ngIf="situation.exerciceId">
+                        <a [routerLink]="['/exercice', situation.exerciceId, 'view']">{{situation.exerciceId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.situation.cours">Cours</span></dt>
+                <dd>
+                    <div *ngIf="situation.coursId">
+                        <a [routerLink]="['/cours', situation.coursId, 'view']">{{situation.coursId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/situation', situation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

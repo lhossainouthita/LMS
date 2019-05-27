@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-competence-heading" jhiTranslate="lmsApp.competence.home.createOrEditLabel">Create or edit a Competence</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!competence.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.competence.codeCompetence" for="field_codeCompetence">Code Competence</label>
+                    <input type="text" class="form-control" name="codeCompetence" id="field_codeCompetence"
+                           formControlName="codeCompetence"/>
+                    <div *ngIf="editForm.get('codeCompetence').invalid && (editForm.get('codeCompetence').dirty || editForm.get('codeCompetence').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeCompetence').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.competence.intituleCompetence" for="field_intituleCompetence">Intitule Competence</label>
+                    <input type="text" class="form-control" name="intituleCompetence" id="field_intituleCompetence"
+                           formControlName="intituleCompetence"/>
+                    <div *ngIf="editForm.get('intituleCompetence').invalid && (editForm.get('intituleCompetence').dirty || editForm.get('intituleCompetence').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('intituleCompetence').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.competence.descriptionCompetence" for="field_descriptionCompetence">Description Competence</label>
+                    <input type="text" class="form-control" name="descriptionCompetence" id="field_descriptionCompetence"
+                           formControlName="descriptionCompetence"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.competence.modulePedagogique" for="field_modulePedagogique">Module Pedagogique</label>
+                    <select class="form-control" id="field_modulePedagogique" name="modulePedagogique" formControlName="modulePedagogiqueId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="modulePedagogiqueOption.id" *ngFor="let modulePedagogiqueOption of modulepedagogiques; trackBy: trackModulePedagogiqueById">{{modulePedagogiqueOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

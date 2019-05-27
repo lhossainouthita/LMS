@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="parcour">
+            <h2><span jhiTranslate="lmsApp.parcour.detail.title">Parcour</span> {{parcour.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lmsApp.parcour.titreParcour">Titre Parcour</span></dt>
+                <dd>
+                    <span>{{parcour.titreParcour}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.parcour.niveauParcour">Niveau Parcour</span></dt>
+                <dd>
+                    <span>{{parcour.niveauParcour}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.parcour.tuteur">Tuteur</span></dt>
+                <dd>
+                    {{parcour.tuteurFirstName}}
+                </dd>
+                <dt><span jhiTranslate="lmsApp.parcour.modulePedagogique">Module Pedagogique</span></dt>
+                <dd>
+                    <div *ngIf="parcour.modulePedagogiqueId">
+                        <a [routerLink]="['/module-pedagogique', parcour.modulePedagogiqueId, 'view']">{{parcour.modulePedagogiqueIntituleModule}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/parcour', parcour.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

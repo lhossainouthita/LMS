@@ -1,0 +1,10 @@
+{
+  "home": {
+    "title": "Bienvenue, Sur l'espace d'apprentissage",
+    "subtitle": "Ceci est votre page d'accueil",
+    "logged": {
+      "message": "Vous êtes connecté en tant que \"{{username}}\"."
+    },
+    "information": "ici vont etre placés les nouvelles informations..."
+  }
+}

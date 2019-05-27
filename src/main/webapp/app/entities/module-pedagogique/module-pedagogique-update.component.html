@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-module-pedagogique-heading" jhiTranslate="lmsApp.modulePedagogique.home.createOrEditLabel">Create or edit a Module Pedagogique</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!modulePedagogique.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.modulePedagogique.codeModule" for="field_codeModule">Code Module</label>
+                    <input type="text" class="form-control" name="codeModule" id="field_codeModule"
+                           formControlName="codeModule"/>
+                    <div *ngIf="editForm.get('codeModule').invalid && (editForm.get('codeModule').dirty || editForm.get('codeModule').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeModule').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.modulePedagogique.intituleModule" for="field_intituleModule">Intitule Module</label>
+                    <input type="text" class="form-control" name="intituleModule" id="field_intituleModule"
+                           formControlName="intituleModule"/>
+                    <div *ngIf="editForm.get('intituleModule').invalid && (editForm.get('intituleModule').dirty || editForm.get('intituleModule').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('intituleModule').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.modulePedagogique.descriptionModule" for="field_descriptionModule">Description Module</label>
+                    <input type="text" class="form-control" name="descriptionModule" id="field_descriptionModule"
+                           formControlName="descriptionModule"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.modulePedagogique.admin" for="field_admin">Admin</label>
+                    <select class="form-control" id="field_admin" name="admin" formControlName="adminId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.firstName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

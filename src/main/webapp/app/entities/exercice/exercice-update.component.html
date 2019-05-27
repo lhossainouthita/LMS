@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-exercice-heading" jhiTranslate="lmsApp.exercice.home.createOrEditLabel">Create or edit a Exercice</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!exercice.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.exercice.titreExercice" for="field_titreExercice">Titre Exercice</label>
+                    <input type="text" class="form-control" name="titreExercice" id="field_titreExercice"
+                           formControlName="titreExercice"/>
+                    <div *ngIf="editForm.get('titreExercice').invalid && (editForm.get('titreExercice').dirty || editForm.get('titreExercice').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('titreExercice').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.exercice.contenuExercice" for="field_contenuExercice">Contenu Exercice</label>
+                    <input type="text" class="form-control" name="contenuExercice" id="field_contenuExercice"
+                           formControlName="contenuExercice"/>
+                    <div *ngIf="editForm.get('contenuExercice').invalid && (editForm.get('contenuExercice').dirty || editForm.get('contenuExercice').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contenuExercice').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.exercice.parcour" for="field_parcour">Parcour</label>
+                    <select class="form-control" id="field_parcour" name="parcour" formControlName="parcourId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="parcourOption.id" *ngFor="let parcourOption of parcours; trackBy: trackParcourById">{{parcourOption.titreParcour}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

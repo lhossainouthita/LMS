@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-devoir-heading" jhiTranslate="lmsApp.devoir.home.createOrEditLabel">Create or edit a Devoir</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!devoir.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.devoir.titreDevoir" for="field_titreDevoir">Titre Devoir</label>
+                    <input type="text" class="form-control" name="titreDevoir" id="field_titreDevoir"
+                           formControlName="titreDevoir"/>
+                    <div *ngIf="editForm.get('titreDevoir').invalid && (editForm.get('titreDevoir').dirty || editForm.get('titreDevoir').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('titreDevoir').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.devoir.cheminDevoir" for="field_cheminDevoir">Chemin Devoir</label>
+                    <input type="text" class="form-control" name="cheminDevoir" id="field_cheminDevoir"
+                           formControlName="cheminDevoir"/>
+                    <div *ngIf="editForm.get('cheminDevoir').invalid && (editForm.get('cheminDevoir').dirty || editForm.get('cheminDevoir').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cheminDevoir').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.devoir.modulePedagogique" for="field_modulePedagogique">Module Pedagogique</label>
+                    <select class="form-control" id="field_modulePedagogique" name="modulePedagogique" formControlName="modulePedagogiqueId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="modulePedagogiqueOption.id" *ngFor="let modulePedagogiqueOption of modulepedagogiques; trackBy: trackModulePedagogiqueById">{{modulePedagogiqueOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

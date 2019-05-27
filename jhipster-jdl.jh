@@ -1,0 +1,118 @@
+
+entity ModulePedagogique {
+    codeModule String required
+    intituleModule String required
+    descriptionModule String
+}
+entity Devoir {
+	titreDevoir String required
+    cheminDevoir String required
+}
+entity Sujet {
+    intituleSujet String required
+    descriptionSujet String
+}
+
+entity Periode {
+    dateDebut LocalDate required
+    dateFin LocalDate required
+}
+
+entity Competence {
+    codeCompetence String required
+    intituleCompetence String required
+    descriptionCompetence String
+}
+
+entity Parcour{
+    titreParcour String required
+    niveauParcour Integer required
+}
+entity Exercice {
+    titreExercice String required
+    contenuExercice String required
+}
+entity Cours{
+    titreCours String required
+    contenuCours String required
+}
+
+entity Situation{
+    titreSituation String required
+    contenuSituation String required
+}
+
+entity Question{
+    numQuestion String required
+    contenuQuestion String required
+}
+
+entity Reponse{
+    
+    contenuReponse String required
+}
+entity Ressource{
+    titreRessource String required
+    cheminRessource String required
+    typeRessource TypeRessource
+}
+
+enum TypeRessource{
+VEDIO,
+IMAGE,
+ANIMATION,
+PDF,
+PPT,
+LIEN
+}
+
+relationship OneToMany {
+	ModulePedagogique{parcour} to Parcour{ModulePedagogique(intituleModule)}
+}
+relationship OneToMany {
+	Parcour{exercice} to Exercice{parcour(titreParcour)}
+}
+relationship OneToMany {
+	Parcour{cours} to Cours{parcour(titreParcour)}
+}
+relationship ManyToOne {
+	ModulePedagogique{admin(firstName)} to User
+}
+relationship ManyToOne {
+	Parcour{tuteur(firstName)} to User
+}
+relationship OneToMany {
+	ModulePedagogique{sujet(intituleSujet)} to Sujet
+}
+relationship OneToMany {
+	Sujet{periode(dateDebut)} to Periode
+}
+relationship OneToMany {
+	ModulePedagogique{competence(intituleCompetence)} to Competence
+}
+relationship OneToMany {
+	ModulePedagogique{devoir(titreDevoir)} to Devoir
+}
+relationship OneToOne {
+	Sujet{competence(intituleCompetence)} to Competence
+}
+relationship OneToMany {
+	Situation{question(contenuQuestion)} to Question
+}
+relationship ManyToOne {
+	Reponse{question(contenuQuestion)} to Question
+}
+relationship OneToMany {
+	Cours{question(titreSituation)} to Situation
+}
+relationship OneToMany {
+	Exercice{question(titreSituation)} to Situation
+}
+relationship OneToMany {
+	Cours{ressource(titreRessource)} to Ressource
+}
+relationship OneToMany {
+	Exercice{ressource(titreSituation)} to Ressource
+}
+dto all with mapstruct except User
+service all with serviceClass except User

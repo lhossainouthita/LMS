@@ -1,0 +1,13 @@
+{
+  "lmsApp": {
+    "TypeRessource": {
+      "null": "",
+      "VEDIO": "VEDIO",
+      "IMAGE": "IMAGE",
+      "ANIMATION": "ANIMATION",
+      "PDF": "PDF",
+      "PPT": "PPT",
+      "LIEN": "LIEN"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-ressource-heading" jhiTranslate="lmsApp.ressource.home.createOrEditLabel">Create or edit a Ressource</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!ressource.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.ressource.titreRessource" for="field_titreRessource">Titre Ressource</label>
+                    <input type="text" class="form-control" name="titreRessource" id="field_titreRessource"
+                           formControlName="titreRessource"/>
+                    <div *ngIf="editForm.get('titreRessource').invalid && (editForm.get('titreRessource').dirty || editForm.get('titreRessource').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('titreRessource').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.ressource.cheminRessource" for="field_cheminRessource">Chemin Ressource</label>
+                    <input type="text" class="form-control" name="cheminRessource" id="field_cheminRessource"
+                           formControlName="cheminRessource"/>
+                    <div *ngIf="editForm.get('cheminRessource').invalid && (editForm.get('cheminRessource').dirty || editForm.get('cheminRessource').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cheminRessource').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.ressource.typeRessource" for="field_typeRessource">Type Ressource</label>
+                    <select class="form-control" name="typeRessource" formControlName="typeRessource" id="field_typeRessource">
+                        <option value="VEDIO">{{'lmsApp.TypeRessource.VEDIO' | translate}}</option>
+                        <option value="IMAGE">{{'lmsApp.TypeRessource.IMAGE' | translate}}</option>
+                        <option value="ANIMATION">{{'lmsApp.TypeRessource.ANIMATION' | translate}}</option>
+                        <option value="PDF">{{'lmsApp.TypeRessource.PDF' | translate}}</option>
+                        <option value="PPT">{{'lmsApp.TypeRessource.PPT' | translate}}</option>
+                        <option value="LIEN">{{'lmsApp.TypeRessource.LIEN' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.ressource.exercice" for="field_exercice">Exercice</label>
+                    <select class="form-control" id="field_exercice" name="exercice" formControlName="exerciceId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="exerciceOption.id" *ngFor="let exerciceOption of exercices; trackBy: trackExerciceById">{{exerciceOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lmsApp.ressource.cours" for="field_cours">Cours</label>
+                    <select class="form-control" id="field_cours" name="cours" formControlName="coursId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="coursOption.id" *ngFor="let coursOption of cours; trackBy: trackCoursById">{{coursOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

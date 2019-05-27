@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="exercice">
+            <h2><span jhiTranslate="lmsApp.exercice.detail.title">Exercice</span> {{exercice.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lmsApp.exercice.titreExercice">Titre Exercice</span></dt>
+                <dd>
+                    <span>{{exercice.titreExercice}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.exercice.contenuExercice">Contenu Exercice</span></dt>
+                <dd>
+                    <span>{{exercice.contenuExercice}}</span>
+                </dd>
+                <dt><span jhiTranslate="lmsApp.exercice.parcour">Parcour</span></dt>
+                <dd>
+                    <div *ngIf="exercice.parcourId">
+                        <a [routerLink]="['/parcour', exercice.parcourId, 'view']">{{exercice.parcourTitreParcour}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/exercice', exercice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

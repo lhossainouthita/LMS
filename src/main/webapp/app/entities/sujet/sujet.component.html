@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lmsApp.sujet.home.title">Sujets</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sujet" [routerLink]="['/sujet/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="lmsApp.sujet.home.createLabel">
+            Create new Sujet
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="sujets">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="lmsApp.sujet.intituleSujet">Intitule Sujet</span></th>
+            <th><span jhiTranslate="lmsApp.sujet.descriptionSujet">Description Sujet</span></th>
+            <th><span jhiTranslate="lmsApp.sujet.modulePedagogique">Module Pedagogique</span></th>
+            <th><span jhiTranslate="lmsApp.sujet.competence">Competence</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sujet of sujets ;trackBy: trackId">
+                <td><a [routerLink]="['/sujet', sujet.id, 'view' ]">{{sujet.id}}</a></td>
+                <td>{{sujet.intituleSujet}}</td>
+                <td>{{sujet.descriptionSujet}}</td>
+                <td>
+                    <div *ngIf="sujet.modulePedagogiqueId">
+                        <a [routerLink]="['../module-pedagogique', sujet.modulePedagogiqueId , 'view' ]" >{{sujet.modulePedagogiqueId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="sujet.competenceId">
+                        <a [routerLink]="['../competence', sujet.competenceId , 'view' ]" >{{sujet.competenceIntituleCompetence}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/sujet', sujet.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sujet', sujet.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'sujet', { outlets: { popup: sujet.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
